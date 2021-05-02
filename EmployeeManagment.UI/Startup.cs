@@ -12,7 +12,10 @@ using System.Threading.Tasks;
 using EmployeeManagement.Common.Mappings;
 using EmployeeManagement.Data.Contracts;
 using EmployeeManagement.Data.Implementation;
+using EmployeeManagementBusinessEngine.Contracts;
+using EmployeeManagementBusinessEngine.Implemantation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace EmployeeManagment.UI
 {
@@ -36,7 +39,10 @@ namespace EmployeeManagment.UI
 
             services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeeLeaveAllocationRepository>();
             services.AddScoped<IEmployeeLeaveRequestRepository, EmployeeLeaveRequestRepository>();
-            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>(); 
+            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            services.AddScoped<IEmployeeLeaveTypeBusinessEngine, EmployeeLeaveTypeBusinessEngine>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
